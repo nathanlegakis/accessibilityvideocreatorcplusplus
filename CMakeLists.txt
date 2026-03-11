@@ -7,6 +7,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(accessibility_video_creator
     src/main.cpp
+    external/sqlite/sqlite3.c
+)
+
+target_include_directories(accessibility_video_creator PRIVATE
+    external/sqlite
 )
 
 target_compile_options(accessibility_video_creator PRIVATE
