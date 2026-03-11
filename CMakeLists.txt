@@ -14,6 +14,10 @@ target_compile_options(accessibility_video_creator PRIVATE
     $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
 )
 
+if (WIN32)
+    target_link_libraries(accessibility_video_creator PRIVATE sapi ole32)
+endif()
+
 # Future: sherpa-onnx integration
 # Option A: add_subdirectory(external/sherpa-onnx)
 # Option B: find_package(sherpa-onnx CONFIG REQUIRED)
